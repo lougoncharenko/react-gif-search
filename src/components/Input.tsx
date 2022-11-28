@@ -1,4 +1,5 @@
 import React, { useState }from 'react';
+import GifURL from './GifUrl';
 import './Input.css';
 
 const Input = () => {
@@ -6,7 +7,7 @@ const Input = () => {
     const [qty, setQty] = useState<number>();
     async function fetchGIF (e: any) {
         e.preventDefault();
-        // alert(`${gif} ${qty}`);
+        alert(`${gif} ${qty}`);
     }
 
   return (
