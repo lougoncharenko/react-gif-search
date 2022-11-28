@@ -1,5 +1,11 @@
+form {
+    display: flex;
+    justify-content: center;
+}
+
 fieldset {
-    margin: 60px;
+    width: 400px;
+    margin-top: 40px;
     padding: 20px;
     background-color: aliceblue;
     display: flex;
