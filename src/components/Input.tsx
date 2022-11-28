@@ -4,6 +4,7 @@ import './Input.css';
 const Input = () => {
   return (
     <form className='gif-search'>
+    <h1>Gif Search</h1>
     <fieldset>
             <label>
                 Type in a search query to search for GIFs:
