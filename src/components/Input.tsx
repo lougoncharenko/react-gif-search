@@ -1,13 +1,32 @@
 import React, { useState }from 'react';
+import { NormalModule } from 'webpack';
 import GifURL from './GifUrl';
 import './Input.css';
 
 const Input = () => {
-    const [gif, setGif] = useState<string>("");
+    const [keyword, setKeyword] = useState<string>("");
     const [qty, setQty] = useState<number>();
+    const [gifs, setGifs] = useState(null)
+
+    const GifResults = gifs?(
+        <section className='gif-results'>
+        <h1>{gifs.header}</h1>
+        <img src={gifs.image}></img>
+        </section>
+    ):null
+    
     async function fetchGIF (e: any) {
         e.preventDefault();
-        alert(`${gif} ${qty}`);
+        fetch(GifURL(keyword, qty))
+        .then((response) => response.json())
+        .then((json) => {
+            console.log(json)
+            const information = {
+                header: json.content_description,
+                image: json.media_formats.gif
+            }
+            setGifs(information)
+        })
     }
 
   return (
@@ -19,9 +38,9 @@ const Input = () => {
                 Type in a search query to search for GIFs:
                 <input 
                 type="text" 
-                value = {gif}
+                value = {keyword}
                 name="search_query"
-                onChange={(e) => setGif(e.target.value)}
+                onChange={(e) => setKeyword(e.target.value)}
                  />
             </label>
             <label>
@@ -38,9 +57,7 @@ const Input = () => {
         <button className = 'search-button' type="submit"> Search For GIFs </button>
     </fieldset>
 </form>
-<section className='gif-results'>
-    {/* insert gifs here */}
-</section>
+{GifResults}
 </>
   )
 }

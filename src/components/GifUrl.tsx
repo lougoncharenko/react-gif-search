@@ -1,12 +1,12 @@
 import React from 'react'
 
 interface Args {
-    gif: string,
-    qty: number
+    keyword: string,
+    qty: number,
 }
-const GifURL = ({gif, qty}: Args) => {
+const GifURL = (keyword:string, qty: number) => {
     const apikey = "AIzaSyBWZkd9EYKL356BTQFOtgmJJvFmUHaMlvc"
-    const url = `https://tenor.googleapis.com/v2/search?q=${gif}&key=${apikey}&limit=${qty}`
+    const url = `https://tenor.googleapis.com/v2/search?q=${keyword}&key=${apikey}&limit=${qty}`
     return url
 }
 
