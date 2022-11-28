@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
+import './Input.css';
 
 const Input = () => {
   return (
-    <form action="/gif_search" method="POST">
+    <form className='gif-search'>
     <fieldset>
             <label>
                 Type in a search query to search for GIFs:
