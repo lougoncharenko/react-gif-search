@@ -4,12 +4,10 @@ interface Args {
     gif: string,
     qty: number
 }
-const FetchGif = ({gif, qty}: Args) => {
+const GifURL = ({gif, qty}: Args) => {
     const apikey = "AIzaSyBWZkd9EYKL356BTQFOtgmJJvFmUHaMlvc"
     const url = `https://tenor.googleapis.com/v2/search?q=${gif}&key=${apikey}&limit=${qty}`
-  return (
-    <div>FetchGif</div>
-  )
+    return url
 }
 
-export default FetchGif
+export default GifURL
