@@ -6,6 +6,7 @@ const Input = () => {
     const [qty, setQty] = useState<number>();
     async function fetchGIF (e: any) {
         e.preventDefault();
+        // alert(`${gif} ${qty}`);
     }
 
   return (
