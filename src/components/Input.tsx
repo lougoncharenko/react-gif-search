@@ -13,7 +13,7 @@ const Input = () => {
                 How many GIFs do you want?
                 <input type="number" name="quantity" min="1" max="10" value="5" />
             </label>
-        <input type="submit" value="Search for GIFs!" />
+        <button className = 'search-button' type="submit"> Search For GIFs </button>
     </fieldset>
 </form>
   )

@@ -1,6 +1,16 @@
 fieldset {
+    margin: 60px;
     padding: 20px;
     background-color: aliceblue;
     display: flex;
     flex-direction: column;
+}
+
+label input  {
+margin: 15px;
+}
+
+.search-button {
+    background-color: aqua;
+    width: 150px;
 }
