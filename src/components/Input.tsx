@@ -6,12 +6,14 @@ import './Input.css';
 const Input = () => {
     const [keyword, setKeyword] = useState<string>("");
     const [qty, setQty] = useState<number>();
-    const [gifs, setGifs] = useState(null)
+    const [gifs, setGifs] = useState([])
 
     const GifResults = gifs?(
         <section className='gif-results'>
-        <h1>{gifs.header}</h1>
-        <img src={gifs.image}></img>
+            {gifs.map((gif) => {return (
+                <img key = {gif.key} src={gif.image} alt={gif.header}></img>
+        )})}
+        
         </section>
     ):null
     
@@ -20,12 +22,16 @@ const Input = () => {
         fetch(GifURL(keyword, qty))
         .then((response) => response.json())
         .then((json) => {
-            console.log(json)
-            const information = {
-                header: json.results[0].content_description,
-                image: json.results[0].media_formats.gif.url
+            const information = []
+            for ( let i = 0; i < qty; i++ ) {
+                information.push({
+                key: [i],
+                header: json.results[i].content_description,
+                image: json.results[i].media_formats.gif.url
+            })
+            console.log(information)
+            setGifs(information);
             }
-            setGifs(information)
         })
     }
 
