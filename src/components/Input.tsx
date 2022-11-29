@@ -22,8 +22,8 @@ const Input = () => {
         .then((json) => {
             console.log(json)
             const information = {
-                header: json.content_description,
-                image: json.media_formats.gif
+                header: json.results[0].content_description,
+                image: json.results[0].media_formats.gif.url
             }
             setGifs(information)
         })
